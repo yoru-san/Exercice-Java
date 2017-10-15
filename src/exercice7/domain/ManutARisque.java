@@ -1,5 +1,7 @@
 package exercice7.domain;
 
+import com.sun.org.glassfish.gmbal.ParameterNames;
+
 public class ManutARisque extends Manutentionnaire implements ARisque {
 
     public ManutARisque(String firstname, String lastname, int age, String entryYear, int base) {
