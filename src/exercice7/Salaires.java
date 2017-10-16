@@ -8,14 +8,11 @@ public class Salaires {
     public static void main(String[] args) {
 
         Personnel p = new Personnel();
+
         Menu menu = new Menu();
+        menu.ChoixAction(p);
 
-        menu.ChoixAction();
-
-        Employee nouvelEmploye = menu.MenuCreation();
-        System.out.println("Ce connard gagne" + nouvelEmploye.calculerSalaire());
-
-        p.ajouterEmploye(new Vendeur("Pierre", "Business", 45, "1995", 30000));
+        /*p.ajouterEmploye(new Vendeur("Pierre", "Business", 45, "1995", 30000));
         p.ajouterEmploye(new Representant("Léon", "Vendtout", 25, "2001", 20000));
         p.ajouterEmploye(new Technicien("Yves", "Bosseur", 28, "1998", 1000));
         p.ajouterEmploye(new Manutentionnaire("Jeanne", "Stocketout", 32, "1998", 45));
@@ -26,6 +23,6 @@ public class Salaires {
         System.out.println(String.format(
                 "Le salaire moyen dans l'entreprise est de %.2f francs.",
                 p.salaireMoyen()
-        ));
+        ));*/
     }
 }

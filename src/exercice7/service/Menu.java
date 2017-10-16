@@ -49,22 +49,31 @@ public class Menu {
             System.out.println(listParams);
         }
 
-        Employee Machin = null;
+        Employee nouvelEmploye = null;
         try {
-            Machin = (Employee) classes[entry].getConstructors()[0].newInstance(listParams.toArray());
-            System.out.println(Machin.toString());
+            nouvelEmploye = (Employee) classes[entry].getConstructors()[0].newInstance(listParams.toArray());
         } catch (Exception e) {
-            System.out.println("lol" + e.getMessage());
+            System.out.println("Exception levée :" + e.getMessage());
         }
 
-        return Machin;
+        return nouvelEmploye;
     }
 
-    public void ChoixAction() {
+    public void ChoixAction(Personnel p) {
         boolean quit = true;
         while (quit) {
-            System.out.println("Bienvenue! \n Veuillez choisir votre action : \n Tapez 's' pour créer un nouvel employé \n Tapez 'c' pour calculer les salaires \n");
+            System.out.println("Bienvenue! \nVeuillez choisir votre action : \nTapez 's' pour créer un nouvel employé \nTapez 'c' pour calculer les salaires \n");
             String choix = sc.next().toLowerCase();
+
+            switch (choix) {
+                case "s":
+                    Employee nouvelEmploye = MenuCreation();
+                    p.ajouterEmploye(nouvelEmploye);
+                break;
+                case "c":
+                    p.afficherSalaires();
+                    System.out.println(String.format("Le salaire moyen dans l'entreprise est de %.2f francs.", p.salaireMoyen()));
+            }
         }
     }
 }
