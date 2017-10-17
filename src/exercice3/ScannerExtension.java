@@ -21,11 +21,11 @@ public class ScannerExtension {
         });
 
         for (File file : files) {
-            System.out.println(file);
+            System.out.println(file); //On affiche tout  les fichiers ayant l'extension requise
         }
     }
 
-    public static String readEntry(String entry) {
+    public static String readEntry(String entry) { //Méthode pour demander l'entrée utilisateur
         System.out.println("Enter the " + entry);
         return sc.next();
     }

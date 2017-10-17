@@ -18,17 +18,17 @@ public class WriteImage {
         BufferedImage image;
         try {
 
-            URL url = new URL(link);
-            image = ImageIO.read(url);
+            URL url = new URL(link); //Création de l'URL
+            image = ImageIO.read(url); //Lecture de l'URL
 
-            ImageIO.write(image, imageFormat , imageFile);
+            ImageIO.write(image, imageFormat , imageFile); //Ecriture de l'image dans le bon fichier au bon format
 
         } catch (IOException e) {
             System.out.println("Raised exception : " + e.getMessage());
         }
     }
 
-    public static String readEntry(String entry) {
+    public static String readEntry(String entry) { //Méthode pour demander l'entrée utilisateur
         System.out.println("Enter the " + entry);
         return sc.next();
     }

@@ -10,7 +10,7 @@ public class Salaires {
         Personnel p = new Personnel();
 
         Menu menu = new Menu();
-        menu.ChoixAction(p);
+        menu.ChoixAction(p); //On lance la méthode qui demande le choix
 
         /*p.ajouterEmploye(new Vendeur("Pierre", "Business", 45, "1995", 30000));
         p.ajouterEmploye(new Representant("Léon", "Vendtout", 25, "2001", 20000));

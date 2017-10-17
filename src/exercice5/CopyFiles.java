@@ -14,14 +14,14 @@ public class CopyFiles {
         copy(readFile, writeFile);
 
     }
-    public static String readEntry(String file) {
+    public static String readEntry(String file) { //Méthode pour demander l'entrée utilisateur
         System.out.println("Enter the " + file);
         return sc.next();
     }
 
-    public static void copy(String readFile, String writeFile) {
+    public static void copy(String readFile, String writeFile) { //Méthode de copie
         try {
-            Files.copy(Paths.get(readFile), new FileOutputStream(writeFile));
+            Files.copy(Paths.get(readFile), new FileOutputStream(writeFile)); //On lui passe le fichier source et celui de destination
         } catch (IOException e) {
             System.out.println("Raised exception : " + e.getMessage());
         }

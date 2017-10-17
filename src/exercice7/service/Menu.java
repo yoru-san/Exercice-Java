@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class Menu {
     static Scanner sc = new Scanner(System.in);
 
-    Class[] classes = new Class[] {
+    Class[] classes = new Class[] { //Tableau regroupant tout les types d'employés
             ManutARisque.class,
             Manutentionnaire.class,
             Representant.class,
@@ -19,19 +19,19 @@ public class Menu {
             Vendeur.class
     };
 
-    public Employee MenuCreation() {
+    public Employee MenuCreation() { //Méthode permettant de créer un nouvel employé
         System.out.println("Vous avez choisi de creer un nouvel employé");
 
         for (Class classe: classes) {
-            System.out.println(Arrays.asList(classes).indexOf(classe) + " pour créer un " + classe.getSimpleName());
+            System.out.println(Arrays.asList(classes).indexOf(classe) + " pour créer un " + classe.getSimpleName()); //Boucle pour afficher tout les types d'employés avec leur numéro d'index assoccié
         }
 
         int entry = sc.nextInt();
-        ArrayList listParams = new ArrayList();
+        ArrayList listParams = new ArrayList(); //Tableau qui va contenir tout les paramètres nécessaire à l'instanciation de l'employé
         for (Parameter parameter: classes[entry].getConstructors()[0].getParameters()) {
-            System.out.println(parameter.getName() + "(" + parameter.getType().getSimpleName() + ")");
+            System.out.println(parameter.getName() + "(" + parameter.getType().getSimpleName() + ")"); //On récupère tout les paramètres pour l'employé choisi
 
-            switch (parameter.getType().getSimpleName()) {
+            switch (parameter.getType().getSimpleName()) { //On parse le paramètre selon son typage et on l'ajoute au tableau
                 case "String":
                     listParams.add(sc.next());
                     break;
@@ -51,7 +51,7 @@ public class Menu {
 
         Employee nouvelEmploye = null;
         try {
-            nouvelEmploye = (Employee) classes[entry].getConstructors()[0].newInstance(listParams.toArray());
+            nouvelEmploye = (Employee) classes[entry].getConstructors()[0].newInstance(listParams.toArray()); //Instanciation du nouvel employé avec le tableau contenant tout les paramètres
         } catch (Exception e) {
             System.out.println("Exception levée :" + e.getMessage());
         }
@@ -68,7 +68,7 @@ public class Menu {
             switch (choix) {
                 case "s":
                     Employee nouvelEmploye = MenuCreation();
-                    p.ajouterEmploye(nouvelEmploye);
+                    p.ajouterEmploye(nouvelEmploye); //On ajoute le nouvel employé dans la liste contenant les autres employés
                 break;
                 case "c":
                     p.afficherSalaires();

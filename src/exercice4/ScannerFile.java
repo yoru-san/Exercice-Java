@@ -8,8 +8,7 @@ public class ScannerFile {
     public static void main (String[] args) {
 
         String entry;
-        System.out.println("Enter the path");
-        String path = sc.next();
+        String path = readEntry("path");
         File entryFile = new File(path);
         PrintWriter wt;
         try {
@@ -17,19 +16,19 @@ public class ScannerFile {
 
             do
             {
-                entry = readEntry("text");
+                entry = readEntry("text"); //On stocke l'entrée de l'utilisateur
                 if (!entry.equals("quit")){
-                    wt.write(entry + "\r\n");
+                    wt.write(entry + "\r\n"); //On écrit l'entrée en lui ajoutant le saut de ligne lorsque l'entrée est différente à "quit"
                 }
             }
-            while(!entry.equals("quit"));
+            while(!entry.equals("quit")); //Tant que l'entrée de l'utilisasteur est différente de "quit", on continue de demander d'écrire
 
             wt.close();
             BufferedReader rd = new BufferedReader(new FileReader(entryFile));
             String line;
             while((line = rd.readLine()) != null)
             {
-                System.out.println(line);
+                System.out.println(line); //On affiche tout le fichier
             }
             rd.close();
 
@@ -38,7 +37,7 @@ public class ScannerFile {
         }
     }
 
-    public static String readEntry(String entry) {
+    public static String readEntry(String entry) { //Méthode pour demander l'entrée utilisateur
         System.out.println("Enter the " + entry);
         return sc.next();
     }
