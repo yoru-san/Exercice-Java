@@ -2,10 +2,11 @@ package exercice7.service;
 
 import exercice7.domain.Employee;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Personnel {
+public class Personnel implements java.io.Serializable {
 
     private List<Employee> employees;
     private static final String PRINT_PATTERN = "%s gagne %.2f euros";
@@ -29,4 +30,38 @@ public class Personnel {
         }
         return total / employees.size();
     }
+//Essai de serialisation
+
+    /*void serialiserPersonnel() {
+        try {
+            Personnel p = null;
+            FileOutputStream fileOut = new FileOutputStream("personnel.txt");
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            out.writeObject(p);
+            out.close();
+            fileOut.close();
+            System.out.printf("Données sauvegardée dans personnel.txt");
+        }catch(IOException e) {
+            System.out.println("Exception levée " + e.getMessage());
+        }
+    }
+
+    /*public void deserialiserPersonnel() {
+        try {
+            Personnel p;
+            FileInputStream fileIn = new FileInputStream("personnel.txt");
+            ObjectInputStream in = new ObjectInputStream(fileIn);
+            p = (Personnel) in.readObject();
+            in.close();
+            fileIn.close();
+        }catch(IOException i) {
+            i.printStackTrace();
+            return;
+        }catch(ClassNotFoundException c) {
+            System.out.println("Employee class not found");
+            c.printStackTrace();
+            return;
+        }
+    }*/
 }
+

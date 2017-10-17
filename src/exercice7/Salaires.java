@@ -8,7 +8,7 @@ public class Salaires {
     public static void main(String[] args) {
 
         Personnel p = new Personnel();
-
+        //p.deserialiserPersonnel();
         Menu menu = new Menu();
         menu.ChoixAction(p); //On lance la méthode qui demande le choix
 

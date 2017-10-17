@@ -1,6 +1,6 @@
 package exercice7.domain;
 
-public abstract class Employee {
+public abstract class Employee implements java.io.Serializable {
 
     private static String NAME_PATTERN = "%s %s %s";
     private String firstname;

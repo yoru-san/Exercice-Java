@@ -69,6 +69,7 @@ public class Menu {
                 case "s":
                     Employee nouvelEmploye = MenuCreation();
                     p.ajouterEmploye(nouvelEmploye); //On ajoute le nouvel employé dans la liste contenant les autres employés
+                    //p.serialiserPersonnel();
                 break;
                 case "c":
                     p.afficherSalaires();
